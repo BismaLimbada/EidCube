@@ -13,10 +13,9 @@ const Cube = () => {
     const scene = new THREE.Scene();
     const loader = new THREE.TextureLoader();
 
-    // 1. BACKGROUND (Fixed to be exact and high quality)
+    // 1. BACKGROUND 
     loader.load('/background.jpg', (tex) => {
       tex.colorSpace = THREE.SRGBColorSpace;
-      // This ensures the background covers the screen correctly
       tex.generateMipmaps = false;
       tex.minFilter = THREE.LinearFilter;
       tex.magFilter = THREE.LinearFilter;
@@ -29,11 +28,11 @@ const Cube = () => {
       powerPreference: "high-performance" 
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio); // Keeps things sharp on high-res screens
+    renderer.setPixelRatio(window.devicePixelRatio); 
     renderer.outputColorSpace = THREE.SRGBColorSpace; 
     mountRef.current.appendChild(renderer.domElement);
 
-    // 2. THE CUBE (Using MeshBasicMaterial for bright, true colors)
+    // 2. THE CUBE 
     scene.add(cubeGroupRef.current);
     const cubeTex = loader.load('/texture.jpg', (t) => {
       t.colorSpace = THREE.SRGBColorSpace;
@@ -101,12 +100,11 @@ const Cube = () => {
       return sprite;
     };
 
-    // Glow color updated to match your custom blue hex
     const eidLabel = createCanvasLabel("Eid Mubarak!", 140, "#ffffff", "#0368a2");
 
     camera.position.z = 15;
 
-    // Handle Window Resize (Crucial for background staying "Exact")
+    // Handle Window Resize 
     const onResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
@@ -121,9 +119,9 @@ const Cube = () => {
 
     const animate = () => {
       requestAnimationFrame(animate);
-      
-      cubeGroupRef.current.rotation.y += 0.008;
-      cubeGroupRef.current.rotation.x += 0.004;
+  
+      cubeGroupRef.current.rotation.y += 0.015; 
+      cubeGroupRef.current.rotation.x += 0.01;
 
       const cubeSpeed = 0.05; 
       const textSpeed = 0.20; 
