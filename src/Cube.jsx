@@ -145,6 +145,7 @@ const Cube = () => {
       window.removeEventListener('resize', onResize);
       renderer.dispose();
     };
+  
   }, []);
 
   return <div ref={mountRef} style={{ width: '100%', height: '100%' }} />;
