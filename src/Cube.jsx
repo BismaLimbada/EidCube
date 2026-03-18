@@ -137,6 +137,7 @@ const Cube = () => {
 
       renderer.render(scene, camera);
     };
+    
     animate();
 
     return () => {
